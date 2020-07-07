@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.h
+//  FileTableViewCell.h
 //  FileManagerUi
 //
 //  Created by mt010 on 2020/7/1.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow * window;
+@interface FileTableViewCell : UITableViewCell
 
 @end
 
+NS_ASSUME_NONNULL_END
