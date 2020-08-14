@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FileModuleAchieve : NSObject
+
 + (FileModuleAchieve*)defaultFileManager;
 /* 判断文件是否存在 */
 - (BOOL)fileExist:(NSString *)path;
@@ -25,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 /* 删除指定路径的文件 */
 - (BOOL)deletePath:(NSString *)folderPath;
 /* 写入指定文件内容 */
-- (void)writeFile:(NSString *)filePath data:(NSString *)text append:(BOOL)isAppend HippyPromiseResolveBlock:(HippyPromiseResolveBlock)callback HippyPromiseRejectBlock:(HippyPromiseRejectBlock)failar;
+- (void)writeFile:(NSString *)filePath data:(NSString *)text append:(BOOL)isAppend;
 /* 读取指定文件内容 */
-- (void)readFile:(NSString *)path HippyPromiseResolveBlock:(HippyPromiseResolveBlock)callback HippyPromiseRejectBlock:(HippyPromiseRejectBlock)failar;
+- (void)readFile:(NSString *)path;
 /* 压缩指定文件 */
 - (void)zip:(NSString *)source target:(NSString *)target;
 /* 压缩多个指定文件 */

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2A05D1F324AC89FE004CA944 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D1F224AC89FE004CA944 /* AppDelegate.m */; };
-		2A05D1F624AC89FE004CA944 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D1F524AC89FE004CA944 /* SceneDelegate.m */; };
 		2A05D1F924AC89FE004CA944 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D1F824AC89FE004CA944 /* ViewController.m */; };
 		2A05D1FC24AC89FE004CA944 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A05D1FA24AC89FE004CA944 /* Main.storyboard */; };
 		2A05D1FE24AC89FF004CA944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A05D1FD24AC89FF004CA944 /* Assets.xcassets */; };
@@ -16,6 +15,13 @@
 		2A05D20424AC8A00004CA944 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D20324AC8A00004CA944 /* main.m */; };
 		2A05D20E24AC8A00004CA944 /* FileManagerUiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D20D24AC8A00004CA944 /* FileManagerUiTests.m */; };
 		2A05D21924AC8A00004CA944 /* FileManagerUiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D21824AC8A00004CA944 /* FileManagerUiUITests.m */; };
+		2A05D22E24ACA489004CA944 /* FileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D22D24ACA489004CA944 /* FileTableViewCell.m */; };
+		2A05D23224ACA5F6004CA944 /* FileModuleAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05D23024ACA5F6004CA944 /* FileModuleAchieve.m */; };
+		2A44A5E724C7DCC2007E3521 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5E624C7DCC2007E3521 /* ChildViewController.m */; };
+		2A44A5EB24C7E6E5007E3521 /* DZGCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5EA24C7E6E5007E3521 /* DZGCellModel.m */; };
+		2A50076024B5CD59005BD3B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A50076224B5CD59005BD3B0 /* InfoPlist.strings */; };
+		2A50076624B5DB76005BD3B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A50076824B5DB76005BD3B0 /* Localizable.strings */; };
+		B6FC78A36D72895670790780 /* libPods-FileManagerUi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2C9518ED126C4783FB7172 /* libPods-FileManagerUi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2A05D1EE24AC89FE004CA944 /* FileManagerUi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileManagerUi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2238B74D5659F6C7A07946BB /* Pods-FileManagerUi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileManagerUi.debug.xcconfig"; path = "Target Support Files/Pods-FileManagerUi/Pods-FileManagerUi.debug.xcconfig"; sourceTree = "<group>"; };
+		2A05D1EE24AC89FE004CA944 /* 小丁文件管理器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "小丁文件管理器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A05D1F124AC89FE004CA944 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2A05D1F224AC89FE004CA944 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2A05D1F424AC89FE004CA944 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		2A05D1F524AC89FE004CA944 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		2A05D1F724AC89FE004CA944 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2A05D1F824AC89FE004CA944 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2A05D1FB24AC89FE004CA944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +59,22 @@
 		2A05D21424AC8A00004CA944 /* FileManagerUiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileManagerUiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A05D21824AC8A00004CA944 /* FileManagerUiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManagerUiUITests.m; sourceTree = "<group>"; };
 		2A05D21A24AC8A00004CA944 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A05D22C24ACA489004CA944 /* FileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileTableViewCell.h; sourceTree = "<group>"; };
+		2A05D22D24ACA489004CA944 /* FileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileTableViewCell.m; sourceTree = "<group>"; };
+		2A05D23024ACA5F6004CA944 /* FileModuleAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileModuleAchieve.m; sourceTree = "<group>"; };
+		2A05D23124ACA5F6004CA944 /* FileModuleAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileModuleAchieve.h; sourceTree = "<group>"; };
+		2A44A5E524C7DCC2007E3521 /* ChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
+		2A44A5E624C7DCC2007E3521 /* ChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
+		2A44A5E924C7E6E5007E3521 /* DZGCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZGCellModel.h; sourceTree = "<group>"; };
+		2A44A5EA24C7E6E5007E3521 /* DZGCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZGCellModel.m; sourceTree = "<group>"; };
+		2A50075A24B5CCD3005BD3B0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		2A50075B24B5CCD4005BD3B0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		2A50076124B5CD59005BD3B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A50076324B5CD69005BD3B0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2A50076724B5DB76005BD3B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A50076924B5DB79005BD3B0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		3D2C9518ED126C4783FB7172 /* libPods-FileManagerUi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FileManagerUi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		514CF080ADB40310C1A64ECF /* Pods-FileManagerUi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileManagerUi.release.xcconfig"; path = "Target Support Files/Pods-FileManagerUi/Pods-FileManagerUi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6FC78A36D72895670790780 /* libPods-FileManagerUi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,13 +110,15 @@
 				2A05D20C24AC8A00004CA944 /* FileManagerUiTests */,
 				2A05D21724AC8A00004CA944 /* FileManagerUiUITests */,
 				2A05D1EF24AC89FE004CA944 /* Products */,
+				3966905F87D0561B99877234 /* Pods */,
+				B3A6CCD488FB8D0ACA8FBAEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		2A05D1EF24AC89FE004CA944 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A05D1EE24AC89FE004CA944 /* FileManagerUi.app */,
+				2A05D1EE24AC89FE004CA944 /* 小丁文件管理器.app */,
 				2A05D20924AC8A00004CA944 /* FileManagerUiTests.xctest */,
 				2A05D21424AC8A00004CA944 /* FileManagerUiUITests.xctest */,
 			);
@@ -104,16 +128,16 @@
 		2A05D1F024AC89FE004CA944 /* FileManagerUi */ = {
 			isa = PBXGroup;
 			children = (
+				2A05D22F24ACA5DE004CA944 /* Tools */,
+				2A05D22B24ACA44C004CA944 /* View */,
 				2A05D1F124AC89FE004CA944 /* AppDelegate.h */,
 				2A05D1F224AC89FE004CA944 /* AppDelegate.m */,
-				2A05D1F424AC89FE004CA944 /* SceneDelegate.h */,
-				2A05D1F524AC89FE004CA944 /* SceneDelegate.m */,
-				2A05D1F724AC89FE004CA944 /* ViewController.h */,
-				2A05D1F824AC89FE004CA944 /* ViewController.m */,
 				2A05D1FA24AC89FE004CA944 /* Main.storyboard */,
 				2A05D1FD24AC89FF004CA944 /* Assets.xcassets */,
 				2A05D1FF24AC89FF004CA944 /* LaunchScreen.storyboard */,
 				2A05D20224AC8A00004CA944 /* Info.plist */,
+				2A50076824B5DB76005BD3B0 /* Localizable.strings */,
+				2A50076224B5CD59005BD3B0 /* InfoPlist.strings */,
 				2A05D20324AC8A00004CA944 /* main.m */,
 			);
 			path = FileManagerUi;
@@ -137,6 +161,63 @@
 			path = FileManagerUiUITests;
 			sourceTree = "<group>";
 		};
+		2A05D22B24ACA44C004CA944 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2A44A5E824C7E6D0007E3521 /* Model */,
+				2A05D23524ACADAB004CA944 /* cell */,
+				2A05D1F724AC89FE004CA944 /* ViewController.h */,
+				2A05D1F824AC89FE004CA944 /* ViewController.m */,
+				2A44A5E524C7DCC2007E3521 /* ChildViewController.h */,
+				2A44A5E624C7DCC2007E3521 /* ChildViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2A05D22F24ACA5DE004CA944 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2A05D23124ACA5F6004CA944 /* FileModuleAchieve.h */,
+				2A05D23024ACA5F6004CA944 /* FileModuleAchieve.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		2A05D23524ACADAB004CA944 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				2A05D22C24ACA489004CA944 /* FileTableViewCell.h */,
+				2A05D22D24ACA489004CA944 /* FileTableViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		2A44A5E824C7E6D0007E3521 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A44A5E924C7E6E5007E3521 /* DZGCellModel.h */,
+				2A44A5EA24C7E6E5007E3521 /* DZGCellModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3966905F87D0561B99877234 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2238B74D5659F6C7A07946BB /* Pods-FileManagerUi.debug.xcconfig */,
+				514CF080ADB40310C1A64ECF /* Pods-FileManagerUi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B3A6CCD488FB8D0ACA8FBAEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D2C9518ED126C4783FB7172 /* libPods-FileManagerUi.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A05D21D24AC8A00004CA944 /* Build configuration list for PBXNativeTarget "FileManagerUi" */;
 			buildPhases = (
+				F2A3FA8EA893002A7393AD22 /* [CP] Check Pods Manifest.lock */,
 				2A05D1EA24AC89FE004CA944 /* Sources */,
 				2A05D1EB24AC89FE004CA944 /* Frameworks */,
 				2A05D1EC24AC89FE004CA944 /* Resources */,
@@ -154,7 +236,7 @@
 			);
 			name = FileManagerUi;
 			productName = FileManagerUi;
-			productReference = 2A05D1EE24AC89FE004CA944 /* FileManagerUi.app */;
+			productReference = 2A05D1EE24AC89FE004CA944 /* 小丁文件管理器.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2A05D20824AC8A00004CA944 /* FileManagerUiTests */ = {
@@ -222,6 +304,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 2A05D1E524AC89FE004CA944;
 			productRefGroup = 2A05D1EF24AC89FE004CA944 /* Products */;
@@ -240,7 +323,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A50076624B5DB76005BD3B0 /* Localizable.strings in Resources */,
 				2A05D20124AC89FF004CA944 /* LaunchScreen.storyboard in Resources */,
+				2A50076024B5CD59005BD3B0 /* InfoPlist.strings in Resources */,
 				2A05D1FE24AC89FF004CA944 /* Assets.xcassets in Resources */,
 				2A05D1FC24AC89FE004CA944 /* Main.storyboard in Resources */,
 			);
@@ -262,15 +347,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F2A3FA8EA893002A7393AD22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FileManagerUi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A05D1EA24AC89FE004CA944 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2A05D1F924AC89FE004CA944 /* ViewController.m in Sources */,
+				2A44A5EB24C7E6E5007E3521 /* DZGCellModel.m in Sources */,
+				2A05D22E24ACA489004CA944 /* FileTableViewCell.m in Sources */,
+				2A05D23224ACA5F6004CA944 /* FileModuleAchieve.m in Sources */,
 				2A05D1F324AC89FE004CA944 /* AppDelegate.m in Sources */,
 				2A05D20424AC8A00004CA944 /* main.m in Sources */,
-				2A05D1F624AC89FE004CA944 /* SceneDelegate.m in Sources */,
+				2A44A5E724C7DCC2007E3521 /* ChildViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +423,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2A05D1FB24AC89FE004CA944 /* Base */,
+				2A50075A24B5CCD3005BD3B0 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -318,8 +432,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				2A05D20024AC89FF004CA944 /* Base */,
+				2A50075B24B5CCD4005BD3B0 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2A50076224B5CD59005BD3B0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A50076124B5CD59005BD3B0 /* en */,
+				2A50076324B5CD69005BD3B0 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A50076824B5DB76005BD3B0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A50076724B5DB76005BD3B0 /* en */,
+				2A50076924B5DB79005BD3B0 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -329,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -387,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -437,6 +572,7 @@
 		};
 		2A05D21E24AC8A00004CA944 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2238B74D5659F6C7A07946BB /* Pods-FileManagerUi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,13 +583,14 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = FileManager.FileManagerUi;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "小丁文件管理器";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		2A05D21F24AC8A00004CA944 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 514CF080ADB40310C1A64ECF /* Pods-FileManagerUi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -464,7 +601,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = FileManager.FileManagerUi;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "小丁文件管理器";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

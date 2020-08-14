@@ -7,7 +7,6 @@
 //
 
 #import "FileModuleAchieve.h"
-#import "SSZipArchive.h"
 
 @implementation FileModuleAchieve
 
@@ -47,9 +46,9 @@
 }
 - (BOOL)fileExist:(NSString *)path{
     NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
-    NSString * Localhostpath = [ToolsClass localhostUrlChange:path];
+    //NSString * Localhostpath = [ToolsClass localhostUrlChange:path];
 
-    BOOL result = [filemgr fileExistsAtPath:Localhostpath];
+    BOOL result = [filemgr fileExistsAtPath:path];
     return result;
 }
 /*
@@ -88,13 +87,13 @@
     获取目标文件大小
  */
 - (NSInteger)getFileSize:(NSString *)path{
-    NSString *localFilePath = [ToolsClass localhostUrlChange:path];
-    if(![self isFileExist:localFilePath]){
+    //NSString *localFilePath = [ToolsClass localhostUrlChange:path];
+    if(![self isFileExist:path]){
         //判断路径是否存在
         return 0;
     }
     NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
-    NSDictionary *dic = [filemgr attributesOfItemAtPath:localFilePath error:nil];
+    NSDictionary *dic = [filemgr attributesOfItemAtPath:path error:nil];
     NSLog(@"该文件的大小%lld",[dic[@"NSFileSize"] longLongValue]);
     return [dic[@"NSFileSize"] longLongValue];
 }
@@ -107,8 +106,8 @@
     获取指定目录下的所有文件(不包含文件夹) 不包含子孙文件及文件夹
  */
 - (NSArray *)getFiles:(NSString *)folderPath{
-    NSString *localFolderPath = [ToolsClass localhostUrlChange:folderPath];
-    if(![self isFileExist:localFolderPath]){
+    //NSString *localFolderPath = [ToolsClass localhostUrlChange:folderPath];
+    if(![self isFileExist:folderPath]){
         //判断路径是否存在
         return @[@"路径不存在"];
     }
@@ -119,13 +118,13 @@
     NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
     NSError *erroe = nil;
     //使用contentsOfDirectoryAtPath方法获取路径下的文件及文件夹
-    NSArray *children =  [filemgr contentsOfDirectoryAtPath:localFolderPath error:&erroe];
+    NSArray *children =  [filemgr contentsOfDirectoryAtPath:folderPath error:&erroe];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
         for (NSString *item in children) {
                NSString * subPath = nil;
                //子文件或者子文件夹的路径
-               subPath  = [localFolderPath stringByAppendingPathComponent:item];
+               subPath  = [folderPath stringByAppendingPathComponent:item];
                BOOL issubDir = NO;
                [filemgr fileExistsAtPath:subPath isDirectory:&issubDir];
                //如果不是文件夹的话
@@ -152,8 +151,8 @@
     获取指定目录下的所有文件夹(不包含文件) 不包含子孙文件及文件夹
  */
 - (NSArray *)getDirs:(NSString *)folderPath{
-    NSString *localFolderPath = [ToolsClass localhostUrlChange:folderPath];
-    if(![self isFileExist:localFolderPath]){
+    //NSString *localFolderPath = [ToolsClass localhostUrlChange:folderPath];
+    if(![self isFileExist:folderPath]){
         //判断路径是否存在
         return @[@"路径不存在"];
     }
@@ -165,13 +164,13 @@
     NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
     NSError *erroe = nil;
     //使用contentsOfDirectoryAtPath方法获取路径下的文件及文件夹
-    NSArray *children =  [filemgr contentsOfDirectoryAtPath:localFolderPath error:&erroe];
+    NSArray *children =  [filemgr contentsOfDirectoryAtPath:folderPath error:&erroe];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
         for (NSString *item in children) {
             NSString * subPath = nil;
             //子文件或者子文件夹的路径
-            subPath  = [localFolderPath stringByAppendingPathComponent:item];
+            subPath  = [folderPath stringByAppendingPathComponent:item];
             BOOL issubDir = NO;
             [filemgr fileExistsAtPath:subPath isDirectory:&issubDir];
             //如果不是文件夹的话
@@ -197,8 +196,8 @@
     删除指定目录以及这个目录下所有目录和文件，
  */
 - (BOOL)deletePath:(NSString *)folderPath{
-    NSString *localFolderPath = [ToolsClass localhostUrlChange:folderPath];
-    if(![self isFileExist:localFolderPath]){
+    //NSString *localFolderPath = [ToolsClass localhostUrlChange:folderPath];
+    if(![self isFileExist:folderPath]){
         //判断路径是否存在
         return false;
     }
@@ -209,7 +208,7 @@
         // 处理耗时操作的代码块...
         NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
         NSError *error = nil;
-        isSuccess = [filemgr removeItemAtPath:localFolderPath error:&error];
+        isSuccess = [filemgr removeItemAtPath:folderPath error:&error];
         //信号量+1
         dispatch_semaphore_signal(signal);
     });
@@ -226,28 +225,25 @@
 @Describe：
    获取指定文件的内容
 */
-- (void)readFile:(NSString *)path HippyPromiseResolveBlock:(HippyPromiseResolveBlock)callback HippyPromiseRejectBlock:(HippyPromiseRejectBlock)failar{
-    NSString *localFilePath = [ToolsClass localhostUrlChange:path];
-    if(![self isFileExist:localFilePath]){
+- (void)readFile:(NSString *)path{
+    //NSString *localFilePath = [ToolsClass localhostUrlChange:path];
+    if(![self isFileExist:path]){
         //判断路径是否存在
-        failar(@"-1",@"文件不存在",nil);
         return;
     }
     //判断文件是否可读
     BOOL isRead;
     NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
-    isRead = [filemgr isReadableFileAtPath:localFilePath];
+    isRead = [filemgr isReadableFileAtPath:path];
     if (isRead) {
         NSLog(@"这个文件++++可读++++ ");
     }else{
         NSLog(@"这个文件++++不可读++++");
-        failar(@"-1",@"文件不可读",nil);
         return;
     }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSString *resultStr = [NSString stringWithContentsOfFile:localFilePath encoding:NSUTF8StringEncoding error:nil];
+        NSString *resultStr = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
            NSLog(@"resultStr is %@", resultStr);
-        callback(resultStr);
     });
 }
 
@@ -262,37 +258,33 @@
 @Describe：
    获取指定文件的内容
 */ //没搞定
-- (void)writeFile:(NSString *)filePath data:(NSString *)text append:(BOOL)isAppend HippyPromiseResolveBlock:(HippyPromiseResolveBlock)callback HippyPromiseRejectBlock:(HippyPromiseRejectBlock)failar{
+- (void)writeFile:(NSString *)filePath data:(NSString *)text append:(BOOL)isAppend{
     
-    NSString *localFilePath = [ToolsClass localhostUrlChange:filePath];
-    if(![self isFileExist:localFilePath]){
+    //NSString *localFilePath = [ToolsClass localhostUrlChange:filePath];
+    if(![self isFileExist:filePath]){
         //判断路径是否存在
-        failar(@"-1",@"文件不存在",nil);
         return;
     }
     __block BOOL isSuccess = false;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
           NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
           BOOL isWrite;
-          isWrite = [filemgr isWritableFileAtPath:localFilePath];
+          isWrite = [filemgr isWritableFileAtPath:filePath];
           if (isWrite) {
               NSLog(@"这个文件或者文件夹----可写----");
           }else{
               NSLog(@"这个文件或者文件夹----不可写----");
-              failar(@"-1",@"文件不可写",nil);
           }
           NSString *string = text;
           // 字符串写入时执行的方法
         if (isAppend){
-            NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:localFilePath];
+            NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
             [fileHandle seekToEndOfFile];  //将节点跳到文件的末尾
             NSData* stringData  = [string dataUsingEncoding:NSUTF8StringEncoding];
             [fileHandle writeData:stringData]; //追加写入数据
             [fileHandle closeFile];
-            callback(nil);
         }else{
-            isSuccess = [string writeToFile:localFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-            callback(nil);
+            isSuccess = [string writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
         }
           
     });
@@ -307,9 +299,8 @@
 */
 - (BOOL)makeDir:(NSString *)path{
     NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
-    NSString *localTargetPath = [ToolsClass localhostUrlChange:path];
     
-    return [filemgr createDirectoryAtPath:localTargetPath withIntermediateDirectories:YES attributes:nil error:nil];
+    return [filemgr createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
 }
 /*
 @Param ::
@@ -321,9 +312,9 @@
    压缩单个指定文件或者文件夹
 */
 - (void)zip:(NSString *)source target:(NSString *)target{
-    NSString *localSource = [ToolsClass localhostUrlChange:source];
-    NSString *localTarget = [ToolsClass localhostUrlChange:target];
-    if(![self isFileExist:localSource]){
+    //NSString *localSource = [ToolsClass localhostUrlChange:source];
+    //NSString *localTarget = [ToolsClass localhostUrlChange:target];
+    if(![self isFileExist:source]){
         //判断路径是否存在
         return;
     }
@@ -332,17 +323,17 @@
     __block BOOL isSuccess = false;
     //试文件夹
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        BOOL result = [filemgr fileExistsAtPath:localSource isDirectory:&isDirectory];
+        BOOL result = [filemgr fileExistsAtPath:source isDirectory:&isDirectory];
           if (result){
               NSLog(@"文件存在");
               if (isDirectory) {
                   NSLog(@"文件夹路径存在");
                   //文件夹压缩
-                  isSuccess = [SSZipArchive createZipFileAtPath:localTarget withContentsOfDirectory:localSource];
+                  //isSuccess = [SSZipArchive createZipFileAtPath:target withContentsOfDirectory:source];
               }else{
                   //文件压缩
                   NSLog(@"文件路径存在");
-                  isSuccess = [SSZipArchive createZipFileAtPath:localTarget withFilesAtPaths:@[localSource]];
+                  //isSuccess = [SSZipArchive createZipFileAtPath:target withFilesAtPaths:@[source]];
               }
           }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -365,12 +356,11 @@
     //将地址转换
     NSMutableArray *sourceArray = [NSMutableArray new];
     for (NSString *url in source) {
-        [sourceArray addObject:[ToolsClass localhostUrlChange:url]];
+        [sourceArray addObject:url];
     }
-    NSString *localTarget = [ToolsClass localhostUrlChange:target];
     __block BOOL isSuccess = false;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        isSuccess = [SSZipArchive createZipFileAtPath:localTarget withFilesAtPaths:sourceArray];
+        //isSuccess = [SSZipArchive createZipFileAtPath:target withFilesAtPaths:sourceArray];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"执行结束");
         });
@@ -392,19 +382,19 @@
     NSFileManager *filemgr = [NSFileManager defaultManager]; //文件资源管理
     NSError *error;
     
-    NSString *localSource = [ToolsClass localhostUrlChange:source];
-    NSString *localTarget = [ToolsClass localhostUrlChange:target];
-    if(![self isFileExist:localTarget]){
+//    NSString *localSource = [ToolsClass localhostUrlChange:source];
+//    NSString *localTarget = [ToolsClass localhostUrlChange:target];
+    if(![self isFileExist:target]){
         //判断路径是否存在
-        if(![filemgr createDirectoryAtPath:localTarget withIntermediateDirectories:YES attributes:nil error:&error])
+        if(![filemgr createDirectoryAtPath:target withIntermediateDirectories:YES attributes:nil error:&error])
         {
-            NSLog(@"Failed to create cache directory at %@", localTarget);
+            NSLog(@"Failed to create cache directory at %@", target);
             target = nil;
         }
     }
     __block BOOL isSuccess = false;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        isSuccess = [SSZipArchive unzipFileAtPath:localSource toDestination:localTarget];
+        //isSuccess = [SSZipArchive unzipFileAtPath:source toDestination:target];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"执行结束");
         });

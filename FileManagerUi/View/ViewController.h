@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FileTableViewCell.h"
+#import <arpa/inet.h>
 
 @interface ViewController : UIViewController
 
